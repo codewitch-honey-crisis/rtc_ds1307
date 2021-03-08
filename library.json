@@ -1,0 +1,22 @@
+{
+  "name":"rtc_ds1307",
+  "description":"DS1307 real time clock library",
+  "keywords":"clock,rtc,ds1307,time,date,devices",
+  "authors":
+  {
+    "name": "codewitch-honey-crisis",
+    "maintainer": true
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/codewitch-honey-crisis/rtc_ds1307.git"
+  },
+  "version": "0.1.0",
+  "frameworks": "espidf",
+  "platforms": "espressif32",
+  "dependencies": 
+  {
+     "codewitch-honey-crisis/esp32_i2c": "*"
+  }
+}
