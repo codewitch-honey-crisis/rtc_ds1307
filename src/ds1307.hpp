@@ -290,7 +290,7 @@ namespace rtc
                 return false;
             }
             uint8_t data[7];
-            if (!cmd.read(data, sizeof(data), I2C_MASTER_ACK))
+            if (!cmd.read(data, sizeof(data)-1, I2C_MASTER_ACK))
             {
                 last_error(esp32::i2c::last_error());
                 return false;
@@ -314,6 +314,7 @@ namespace rtc
             result->tm_sec = bcd_to_bin(data[0]);
             result->tm_min = bcd_to_bin(data[1]);
             result->tm_hour = bcd_to_bin(data[2]);
+            result->tm_wday=bcd_to_bin(data[3]);
             result->tm_mday = bcd_to_bin(data[4]);
             result->tm_mon = bcd_to_bin(data[5]) - 1;    // 0-11 - Note: The month on the DS1307 is 1-12.
             result->tm_year = bcd_to_bin(data[6]) + 100; // Years since 1900
